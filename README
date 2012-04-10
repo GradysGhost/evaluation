@@ -35,7 +35,7 @@ to the two number directly before it - 4 and 6 - and the multiplication
 operator applies to the two numbers directly before it - the 2 and the sum
 of 4 and 6.
 
-The Evaluator class has functions to convert infix notation to postfix
+The Evaluator class has a function to convert infix notation to postfix
 notation, and not just because it can. Postfix notation is easier for a
 program to evaluate since the operators and operands alike can be read
 into stacks.
@@ -60,4 +60,22 @@ The Test class contains only a main function which accepts an infix
 expression and prints out the postfix conversion and the evaluated value.
 To run this test, change directory to the build directory and run:
 
-java -cp ./ evaluation.Test "2 * (4 + 6)"
+$ java -cp ./ evaluation.Test "2 * (4 + 6)"
+2 4 6 + *
+20.0
+
+This class recognizes the following operator characters and their traditional
+order of precedence:
+
+^ - Exponents (2 ^ 4 = 16)
+/ - Division (2 / 4 = 0.5)
+* - Multiplication (2 * 4 = 8)
+% - Modulo (2 % 4 = 2)
++ - Addition (2 + 4 = 6)
+- - Subtraction (2 - 4 = -2)
+
+Complexity and whitespace aren't an issue for the Evaluator.
+
+$ java -cp ./ evaluation.Test "(1 + 5) % 2 * 4^2-(3-2+49/7)"
+1 5 + 2 % 4 2 ^ * 3 2 - 49 7 / + -
+-8.0
