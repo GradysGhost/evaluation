@@ -2,9 +2,8 @@
  *  This file is released as-is under the GNU General Public License version 3.0
  *                              For the full implications of this license, visit
  *                           http://www.gnu.org/licenses/gpl-3.0-standalone.html
- *                           Produced for the University of Texas at San Antonio
  *
- * agent.Agent
+ * evaluation.Evaluator
  *     author: Ryan J. Jung
  *     last modified: 05-27-2011
  *
