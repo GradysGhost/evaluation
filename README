@@ -1,0 +1,63 @@
+This software is released as-is under the GNU General Public License version
+3.0 in the hopes that it might be useful to you, but with no warranty at all
+or guarantee that it works. It works, though. And here's how to use it:
+
+There are two ways to format an expression - using infix notation and using
+postfix notation. Infix notation is the common written form of an expression.
+For example...
+
+2 * 4 + 6
+
+or
+
+2 * (4 + 6)
+
+This is called infix notation because the operator characters appear between
+the values they operate on. Parentheses denote precedence, and there is an
+established order of operations at work. In the first example, 2 would be
+multiplied by 4, then 6 would be added. In the second example, 4 and 6 would
+be summed, then that sum would be doubled.
+
+Postfix notation places the operators after the operands, and disposes of
+parentheses while maintaining appropriate operation sequence. The examples
+above transcribed into postfix notation:
+
+2 4 * 6 +
+
+and
+
+2 4 6 + *
+
+The first example here shows that 2 and 4 would first be multiplied, then 6
+would be added to that product. The second example shows how sequence can
+still be indicated without the use of parentheses. The + operator applies
+to the two number directly before it - 4 and 6 - and the multiplication
+operator applies to the two numbers directly before it - the 2 and the sum
+of 4 and 6.
+
+The Evaluator class has functions to convert infix notation to postfix
+notation, and not just because it can. Postfix notation is easier for a
+program to evaluate since the operators and operands alike can be read
+into stacks.
+
+The Evaluator class is static and has no constructor. There are three
+public static functions to use.
+
+public static String infixToPostfix(String infix)
+	This is the converter function and does nothing but return the
+	postfix version of the provided expression. Provided "2 * 4 + 6",
+	this function returns "2 4 * 6 +".
+
+public static double evaluatePostfix(String postfix)
+	Provided a postfix-formatted expression, this function returns
+	the correct value. Given "2 4 * 6 +", it returns 14.0
+
+public static double evaluateInfix(String infix)
+	This converts the given infix expression to postfix notation and
+	evaluates it. Given "2 * (4 + 6)", it returns 20.0
+
+The Test class contains only a main function which accepts an infix
+expression and prints out the postfix conversion and the evaluated value.
+To run this test, change directory to the build directory and run:
+
+java -cp ./ evaluation.Test "2 * (4 + 6)"
